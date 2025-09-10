@@ -11,7 +11,7 @@ import (
 	_ "github.com/denisenkom/go-mssqldb" // SQL driver
 	//	_ "github.com/lib/pq" // PostgreSQL driver
 	// _ "github.com/go-sql-driver/mysql" // MySQL driver
-	// _ "github.com/mattn/go-sqlite3"    // SQLite driver
+	_ "github.com/mattn/go-sqlite3" // SQLite driver
 )
 
 type DBType string

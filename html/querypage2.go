@@ -86,7 +86,7 @@ func QueryPage2(props PageProps, now time.Time) Node {
 							Text("Content for Tab 1"),
 						),
 						Div(
-							Data("tablename", "main"),
+							Data("tablename", "db1"),
 							Textarea(
 								ID("keyeventelement1"),
 								Class("textarea textarea-info textarea-md resize"),
@@ -236,6 +236,7 @@ func QueryPage2(props PageProps, now time.Time) Node {
                 }
                     //})`),
 		),
+		dbQueryModal(props),
 	)
 }
 
@@ -291,6 +292,36 @@ func searchBar(props PageProps) Node {
 				Class("modal-action"),
 				Form(
 					Method("dialog"),
+					Button(
+						Class("btn"),
+						Text("Close"),
+					),
+				),
+			),
+		),
+	)
+}
+
+func dbQueryModal(props PageProps) Node {
+	//dbmanager.DBConfig
+	return Dialog(
+		ID("my_query_modal_1"),
+		Class("modal"),
+		Div(
+			Class("modal-box"),
+			H3(
+				Class("text-lg font-bold"),
+				Text("Update/Insert query"),
+			),
+			P(
+				Class("py-4"),
+				Text("Press ESC key or click the button below to close"),
+			),
+			Div(
+				Class("modal-action"),
+				Form(
+					Method("dialog"),
+					// if there is a button in form, it will close the modal
 					Button(
 						Class("btn"),
 						Text("Close"),

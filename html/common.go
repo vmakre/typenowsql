@@ -64,7 +64,7 @@ func page(props PageProps, children ...Node) Node {
 					Group(children),
 				),
 			),
-			dbconnectionsModal(),
+			//	dbconnectionsModal(),
 			footer(),
 			// add javascript
 			// Script(
@@ -190,35 +190,35 @@ func footer() Node {
 	)
 }
 
-func dbconnectionsModal(dbhandler *DBHandler) Node {
-	//dbmanager.DBConfig
-	return Dialog(
-		ID("my_modal_1"),
-		Class("modal"),
-		Div(
-			Class("modal-box"),
-			H3(
-				Class("text-lg font-bold"),
-				Text("Hello!"),
-			),
-			P(
-				Class("py-4"),
-				Text("Press ESC key or click the button below to close"),
-			),
-			Div(
-				Class("modal-action"),
-				Form(
-					Method("dialog"),
-					// if there is a button in form, it will close the modal
-					Button(
-						Class("btn"),
-						Text("Close"),
-					),
-				),
-			),
-		),
-	)
-}
+// func dbconnectionsModal(dbhandler *DBHandler) Node {
+// 	//dbmanager.DBConfig
+// 	return Dialog(
+// 		ID("my_modal_1"),
+// 		Class("modal"),
+// 		Div(
+// 			Class("modal-box"),
+// 			H3(
+// 				Class("text-lg font-bold"),
+// 				Text("Hello!"),
+// 			),
+// 			P(
+// 				Class("py-4"),
+// 				Text("Press ESC key or click the button below to close"),
+// 			),
+// 			Div(
+// 				Class("modal-action"),
+// 				Form(
+// 					Method("dialog"),
+// 					// if there is a button in form, it will close the modal
+// 					Button(
+// 						Class("btn"),
+// 						Text("Close"),
+// 					),
+// 				),
+// 			),
+// 		),
+// 	)
+// }
 
 func getHashedPath(path1 string) string {
 	root, err := getProjectRoot()

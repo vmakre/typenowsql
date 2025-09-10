@@ -35,6 +35,10 @@ func main() {
 
 	// Initialize database manager
 	dbManager := dbmanager.NewDatabaseManager()
+	dbMain := dbmanager.DBConfig{
+		Type:   dbmanager.SQLite,
+		DBName: "sqlite.db",
+	}
 	dbConfig1 := dbmanager.DBConfig{
 		Type:     dbmanager.Sqlserver,
 		Host:     "10.10.4.160",
@@ -50,12 +54,19 @@ func main() {
 		//DBName:   getEnv("DB_NAME", "sakila"),
 		//SSLMode:  getEnv("DB_SSLMODE", "disable"),
 	}
-	if err := dbManager.AddConnection("main", dbConfig1); err != nil {
+	if err := dbManager.AddConnection("main", dbMain); err != nil {
 		//log.Fatal(err)
 	}
-
 	// Connect to databases
 	if err := dbManager.Connect("main"); err != nil {
+		//	log.Fatal(err)
+	}
+
+	if err := dbManager.AddConnection("db1", dbConfig1); err != nil {
+		//log.Fatal(err)
+	}
+	// Connect to databases
+	if err := dbManager.Connect("db1"); err != nil {
 		//	log.Fatal(err)
 	}
 
