@@ -1,10 +1,10 @@
 package resource
 
 import (
-	"app_chi_templ/dbmanager"
-	"app_chi_templ/middleware"
-	"app_chi_templ/models"
 	"context"
+	"typenowsql/dbmanager"
+	"typenowsql/middleware"
+	"typenowsql/models"
 )
 
 type MainDBResource interface {

@@ -1,9 +1,9 @@
 package service
 
 import (
-	"app_chi_templ/models"
-	resource "app_chi_templ/resource"
 	"context"
+	"typenowsql/models"
+	resource "typenowsql/resource"
 )
 
 type UserService interface {

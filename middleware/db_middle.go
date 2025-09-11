@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"app_chi_templ/dbmanager"
 	"context"
 	"net/http"
+	"typenowsql/dbmanager"
 )
 
 type contextKey string

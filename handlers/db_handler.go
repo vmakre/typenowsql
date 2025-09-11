@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"app_chi_templ/dbmanager"
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"typenowsql/dbmanager"
 
 	"github.com/go-chi/chi/v5"
 	. "maragu.dev/gomponents"

@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"app_chi_templ/models"
-	"app_chi_templ/service"
+	"typenowsql/models"
+	"typenowsql/service"
 
 	"github.com/go-chi/chi/v5"
 )

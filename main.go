@@ -6,9 +6,9 @@ import (
 	"os"
 	"strconv"
 
-	"app_chi_templ/dbmanager"
-	"app_chi_templ/handlers"
-	"app_chi_templ/service"
+	"typenowsql/dbmanager"
+	"typenowsql/handlers"
+	"typenowsql/service"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -39,6 +39,14 @@ func main() {
 		Type:   dbmanager.SQLite,
 		DBName: "sqlite.db",
 	}
+	if err := dbManager.AddConnection("main", dbMain); err != nil {
+		//log.Fatal(err)
+	}
+	// Connect to databases
+	if err := dbManager.Connect("main"); err != nil {
+		//	log.Fatal(err)
+	}
+
 	dbConfig1 := dbmanager.DBConfig{
 		Type:     dbmanager.Sqlserver,
 		Host:     "10.10.4.160",
@@ -54,14 +62,6 @@ func main() {
 		//DBName:   getEnv("DB_NAME", "sakila"),
 		//SSLMode:  getEnv("DB_SSLMODE", "disable"),
 	}
-	if err := dbManager.AddConnection("main", dbMain); err != nil {
-		//log.Fatal(err)
-	}
-	// Connect to databases
-	if err := dbManager.Connect("main"); err != nil {
-		//	log.Fatal(err)
-	}
-
 	if err := dbManager.AddConnection("db1", dbConfig1); err != nil {
 		//log.Fatal(err)
 	}

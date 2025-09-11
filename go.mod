@@ -1,4 +1,4 @@
-module app_chi_templ
+module typenowsql
 
 go 1.24.6
 

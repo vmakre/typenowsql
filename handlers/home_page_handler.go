@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	"app_chi_templ/html"
-	"app_chi_templ/service"
+	"typenowsql/html"
+	"typenowsql/service"
 
 	"github.com/go-chi/chi/v5"
 	// "github.com/go-chi/chi/v5/middleware"
