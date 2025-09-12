@@ -10,7 +10,7 @@ import (
 type UserResource interface {
 	CreateUser(ctx context.Context, user *models.User) error
 	GetUserByID(ctx context.Context, id int) (*models.User, error)
-	GetCities(ctx context.Context) ([]*models.City, error)
+	// GetCities(ctx context.Context) ([]*models.City, error)
 	GetUsers(ctx context.Context) ([]*models.User, error)
 	UpdateUser(ctx context.Context, user *models.User) error
 	DeleteUser(ctx context.Context, id int) error
@@ -78,37 +78,37 @@ func (r *userResource) GetUserByID(ctx context.Context, id int) (*models.User, e
 	return &user, nil
 }
 
-func (r *userResource) GetCities(ctx context.Context) ([]*models.City, error) {
-	dbManager := middleware.GetDBManagerFromContext(ctx)
-	if dbManager == nil {
-		//http.Error(w, "Database manager not available", http.StatusInternalServerError)
-		return nil, nil
-	}
+// func (r *userResource) GetCities(ctx context.Context) ([]*models.City, error) {
+// 	dbManager := middleware.GetDBManagerFromContext(ctx)
+// 	if dbManager == nil {
+// 		//http.Error(w, "Database manager not available", http.StatusInternalServerError)
+// 		return nil, nil
+// 	}
 
-	// Use specific database connection
-	db, err := dbManager.GetConnection("main")
-	if err != nil {
-		// http.Error(w, err.Error(), http.StatusInternalServerError)
-		return nil, nil
-	}
-	//query := `SELECT id, name, email, created_at, updated_at FROM users`
-	query := `SELECT city , country_id  FROM city`
-	rows, err := db.QueryContext(ctx, query)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
+// 	// Use specific database connection
+// 	db, err := dbManager.GetConnection("main")
+// 	if err != nil {
+// 		// http.Error(w, err.Error(), http.StatusInternalServerError)
+// 		return nil, nil
+// 	}
+// 	//query := `SELECT id, name, email, created_at, updated_at FROM users`
+// 	query := `SELECT city , country_id  FROM city`
+// 	rows, err := db.QueryContext(ctx, query)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	defer rows.Close()
 
-	var cities []*models.City
-	for rows.Next() {
-		var city models.City
-		if err := rows.Scan(&city.City, &city.Country_id); err != nil {
-			return nil, err
-		}
-		cities = append(cities, &city)
-	}
-	return cities, nil
-}
+//		var cities []*models.City
+//		for rows.Next() {
+//			var city models.City
+//			if err := rows.Scan(&city.City, &city.Country_id); err != nil {
+//				return nil, err
+//			}
+//			cities = append(cities, &city)
+//		}
+//		return cities, nil
+//	}
 func (r *userResource) GetUsers(ctx context.Context) ([]*models.User, error) {
 	dbManager := middleware.GetDBManagerFromContext(ctx.Value("context").(context.Context))
 	if dbManager == nil {

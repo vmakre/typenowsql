@@ -9,7 +9,6 @@ import (
 type UserService interface {
 	CreateUser(ctx context.Context, req *models.CreateUserRequest) (*models.User, error)
 	GetUser(ctx context.Context, id int) (*models.User, error)
-	GetCities(ctx context.Context) ([]*models.City, error)
 	GetUsers(ctx context.Context) ([]*models.User, error)
 	UpdateUser(ctx context.Context, id int, req *models.CreateUserRequest) (*models.User, error)
 	DeleteUser(ctx context.Context, id int) error
@@ -47,10 +46,6 @@ func (s *userService) GetUser(ctx context.Context, id int) (*models.User, error)
 
 func (s *userService) GetUsers(ctx context.Context) ([]*models.User, error) {
 	return s.userRepo.GetUsers(ctx)
-}
-
-func (s *userService) GetCities(ctx context.Context) ([]*models.City, error) {
-	return s.userRepo.GetCities(ctx)
 }
 
 func (s *userService) UpdateUser(ctx context.Context, id int, req *models.CreateUserRequest) (*models.User, error) {

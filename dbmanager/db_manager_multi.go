@@ -31,6 +31,7 @@ type DBConfig struct {
 	Password string
 	DBName   string
 	SSLMode  string // For PostgreSQL
+	URLConn  string // for url connection only
 }
 
 type DatabaseManager struct {
