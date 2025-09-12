@@ -20,18 +20,6 @@ import (
 )
 
 func main() {
-	// Database configuration
-	// dbConfig := database.DBConfig{
-	// 	Host:     getEnv("DB_HOST", "10.10.4.160"),
-	// 	Port:     getEnvAsInt("DB_PORT", 1435),
-	// 	User:     getEnv("DB_USER", "sa"),
-	// 	Password: getEnv("DB_PASSWORD", "M@rek2017"),
-	// 	DBName:   getEnv("DB_NAME", "sakila"),
-	// 	SSLMode:  getEnv("DB_SSLMODE", "disable"),
-	// }
-	// Create database manager with lazy loading
-	//	dsn := fmt.Sprintf("sqlserver://%s:%s@%s:%d?database=%s", dbConfig.User, dbConfig.Password, dbConfig.Host, dbConfig.Port, dbConfig.DBName)
-	//dbManager := database.NewDBManager(dsn, 25, 5, time.Hour, false)
 
 	// Initialize database manager
 	dbManager := dbmanager.NewDatabaseManager()
