@@ -47,29 +47,6 @@ func main() {
 		//	log.Fatal(err)
 	}
 
-	dbConfig1 := dbmanager.DBConfig{
-		Type:     dbmanager.Sqlserver,
-		Host:     "10.10.4.160",
-		Port:     1435,
-		User:     "sa",
-		Password: "M@rek2017",
-		DBName:   "sakila",
-		SSLMode:  "disable",
-		//Host:     getEnv("DB_HOST", "10.10.4.160"),
-		//Port:     getEnvAsInt("DB_PORT", 1435),
-		//User:     getEnv("DB_USER", "sa"),
-		//Password: getEnv("DB_PASSWORD", "M@rek2017"),
-		//DBName:   getEnv("DB_NAME", "sakila"),
-		//SSLMode:  getEnv("DB_SSLMODE", "disable"),
-	}
-	if err := dbManager.AddConnection("db1", dbConfig1); err != nil {
-		//log.Fatal(err)
-	}
-	// Connect to databases
-	if err := dbManager.Connect("db1"); err != nil {
-		//	log.Fatal(err)
-	}
-
 	// Initialize handlers
 	dbHandler := handlers.NewDBHandler(dbManager)
 
